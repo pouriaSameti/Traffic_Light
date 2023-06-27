@@ -3,7 +3,7 @@ The Assembly Language &amp; Microprocessor Course Final Project.
 
 
 ## Introduction
-We implemented Traffic lights on a crossroad using AVR Atmega32 Microchip. we designed the circuit of AVR with Proteus and program it with C Language.
+We implemented Traffic lights on a crossroad using AVR Atmega32 Microchip. We designed the circuit of AVR with Proteus and programmed it with C Language.
 
 
 ## Circuit
