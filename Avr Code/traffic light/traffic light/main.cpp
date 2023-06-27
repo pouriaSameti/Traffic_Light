@@ -51,7 +51,24 @@ int main(void)
 
 		while (1)
 		{
-
+			
+			int value = conversionA0();
+			int value2 = conversionA1();
+			
+			delayHorizental = value * 0.05;
+			midDelay = value * 0.008;
+			delayVertical = (value * 0.05) * (512 / value2);
+			
+			PORTC = 0x24;
+			waitFor(delayHorizental);
+			
+			PORTC = 0x22;
+			waitFor(midDelay);
+			
+			PORTC = 0x81;
+			waitFor(delayVertical);
+			
+			PORTC = 0x41;
+			waitFor(midDelay);
 		}
-	
 }
