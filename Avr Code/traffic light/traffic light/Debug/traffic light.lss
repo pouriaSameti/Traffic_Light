@@ -152,60 +152,60 @@ void waitFor(int secs) {
 int main(void)
 {
 	
-	DDRC = 0xff;
+		DDRC = 0xff;
   b6:	8f ef       	ldi	r24, 0xFF	; 255
   b8:	84 bb       	out	0x14, r24	; 20
-	
-	DDRA = 0x00;
+		
+		DDRA = 0x00;
   ba:	1a ba       	out	0x1a, r1	; 26
-	ADCSRA = 0x87;
+		ADCSRA = 0x87;
   bc:	87 e8       	ldi	r24, 0x87	; 135
   be:	86 b9       	out	0x06, r24	; 6
-	ADMUX = 0x40;
+		ADMUX = 0x40;
   c0:	80 e4       	ldi	r24, 0x40	; 64
   c2:	87 b9       	out	0x07, r24	; 7
-		
-		delayHorizental = value * 0.05;
-		midDelay = value * 0.008;
-		delayVertical = (value * 0.05) * (512 / value2);
 			
-		PORTC = 0x24;
+			delayHorizental = value * 0.05;
+			midDelay = value * 0.008;
+			delayVertical = (value * 0.05) * (512 / value2);
+			
+			PORTC = 0x24;
   c4:	0f 2e       	mov	r0, r31
   c6:	f4 e2       	ldi	r31, 0x24	; 36
   c8:	6f 2e       	mov	r6, r31
   ca:	f0 2d       	mov	r31, r0
-		waitFor(delayHorizental);
-		
-		PORTC = 0x22;
+			waitFor(delayHorizental);
+			
+			PORTC = 0x22;
   cc:	0f 2e       	mov	r0, r31
   ce:	f2 e2       	ldi	r31, 0x22	; 34
   d0:	7f 2e       	mov	r7, r31
   d2:	f0 2d       	mov	r31, r0
-		waitFor(midDelay);
-		
-		PORTC = 0x81;
+			waitFor(midDelay);
+			
+			PORTC = 0x81;
   d4:	01 e8       	ldi	r16, 0x81	; 129
-		waitFor(delayVertical);
+			waitFor(delayVertical);
   d6:	41 2c       	mov	r4, r1
   d8:	68 94       	set
   da:	55 24       	eor	r5, r5
   dc:	51 f8       	bld	r5, 1
-		
-		PORTC = 0x41;
+			
+			PORTC = 0x41;
   de:	11 e4       	ldi	r17, 0x41	; 65
-	int delayHorizental, midDelay, delayVertical;
+		int delayHorizental, midDelay, delayVertical;
 
-	while (1)
-	{
-
-		int value = conversionA0();
+		while (1)
+		{
+			
+			int value = conversionA0();
   e0:	0e 94 36 00 	call	0x6c	; 0x6c <_Z12conversionA0v>
   e4:	7c 01       	movw	r14, r24
-		int value2 = conversionA1();
+			int value2 = conversionA1();
   e6:	0e 94 3e 00 	call	0x7c	; 0x7c <_Z12conversionA1v>
   ea:	ec 01       	movw	r28, r24
-		
-		delayHorizental = value * 0.05;
+			
+			delayHorizental = value * 0.05;
   ec:	b7 01       	movw	r22, r14
   ee:	ff 0c       	add	r15, r15
   f0:	88 0b       	sbc	r24, r24
@@ -220,7 +220,7 @@ int main(void)
  104:	0e 94 53 01 	call	0x2a6	; 0x2a6 <__mulsf3>
  108:	4b 01       	movw	r8, r22
  10a:	5c 01       	movw	r10, r24
-		midDelay = value * 0.008;
+			midDelay = value * 0.008;
  10c:	2f e6       	ldi	r18, 0x6F	; 111
  10e:	32 e1       	ldi	r19, 0x12	; 18
  110:	43 e0       	ldi	r20, 0x03	; 3
@@ -231,26 +231,26 @@ int main(void)
  11c:	0e 94 b7 00 	call	0x16e	; 0x16e <__fixsfsi>
  120:	6b 01       	movw	r12, r22
  122:	7c 01       	movw	r14, r24
-		delayVertical = (value * 0.05) * (512 / value2);
+			delayVertical = (value * 0.05) * (512 / value2);
 			
-		PORTC = 0x24;
+			PORTC = 0x24;
  124:	65 ba       	out	0x15, r6	; 21
-		waitFor(delayHorizental);
+			waitFor(delayHorizental);
  126:	c5 01       	movw	r24, r10
  128:	b4 01       	movw	r22, r8
  12a:	0e 94 b7 00 	call	0x16e	; 0x16e <__fixsfsi>
  12e:	cb 01       	movw	r24, r22
  130:	0e 94 47 00 	call	0x8e	; 0x8e <_Z7waitFori>
-		
-		PORTC = 0x22;
+			
+			PORTC = 0x22;
  134:	75 ba       	out	0x15, r7	; 21
-		waitFor(midDelay);
+			waitFor(midDelay);
  136:	c6 01       	movw	r24, r12
  138:	0e 94 47 00 	call	0x8e	; 0x8e <_Z7waitFori>
-		
-		PORTC = 0x81;
+			
+			PORTC = 0x81;
  13c:	05 bb       	out	0x15, r16	; 21
-		waitFor(delayVertical);
+			waitFor(delayVertical);
  13e:	c2 01       	movw	r24, r4
  140:	be 01       	movw	r22, r28
  142:	0e 94 e8 01 	call	0x3d0	; 0x3d0 <__divmodhi4>
@@ -265,10 +265,10 @@ int main(void)
  15a:	0e 94 b7 00 	call	0x16e	; 0x16e <__fixsfsi>
  15e:	cb 01       	movw	r24, r22
  160:	0e 94 47 00 	call	0x8e	; 0x8e <_Z7waitFori>
-		
-		PORTC = 0x41;
+			
+			PORTC = 0x41;
  164:	15 bb       	out	0x15, r17	; 21
-		waitFor(midDelay);	
+			waitFor(midDelay);
  166:	c6 01       	movw	r24, r12
  168:	0e 94 47 00 	call	0x8e	; 0x8e <_Z7waitFori>
  16c:	b9 cf       	rjmp	.-142    	; 0xe0 <main+0x2a>
