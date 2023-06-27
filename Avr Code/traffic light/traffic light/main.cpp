@@ -41,4 +41,17 @@ void waitFor(int secs) {
 int main(void)
 {
 	
+		DDRC = 0xff;
+		
+		DDRA = 0x00;
+		ADCSRA = 0x87;
+		ADMUX = 0x40;
+		
+		int delayHorizental, midDelay, delayVertical;
+
+		while (1)
+		{
+
+		}
+	
 }
